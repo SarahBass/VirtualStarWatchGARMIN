@@ -1,8 +1,6 @@
 # VirtualStarWatchGARMIN
 Monkey C Version of Virtual Star Watch
 
-🙈, 🙉, 🙊 
-
 
 <img src="https://guerrillaworldpress.files.wordpress.com/2015/01/b3_construction_monkey2.jpg" width="300" height="200" />
 
