@@ -1,9 +1,13 @@
 <drawables>
-    <bitmap id="LauncherIcon" filename="iconvenusq.png" />
-    <bitmap id="myBitmap" filename="myBitmap.jpeg"/>
-     <bitmap id="myBitmap0" filename="myBitmap0.png"/>
-    <bitmap id="myBitmap1" filename="myBitmap1.png"/>
-    <bitmap id="myBitmap2" filename="myBitmap2.png"/>
-    <bitmap id="eyes" filename="eyes1.png"/>
-    <bitmap id="mouth" filename="mouth.png"/>
+    <bitmap id="LauncherIcon" filename="iconvenus2.png" />
+    <bitmap id="Venus2March0" filename="Venus2March0.png" dithering="none"/>
+    <bitmap id="star" filename="star0.png" dithering="none"/>
+    <bitmap id="eyes" filename="eyes1.png" dithering="none">
+          <palette>
+          <color>8C6C71</color>
+          <color>5A5119</color>
+          <color>DE5F92</color>
+      </palette>
+      </bitmap>
+    <bitmap id="mouth" filename="mouth.png" dithering="none"/>
 </drawables>
