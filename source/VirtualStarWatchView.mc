@@ -6,13 +6,21 @@ import Toybox.WatchUi;
 
 class VirtualStarWatchView extends WatchUi.WatchFace {
     var myBitmap;
+    var myBitmap0;
      var myBitmap1;
       var myBitmap2;
+      var eyes;
+      var mouth;
     function initialize() {
         WatchFace.initialize();
         View.initialize();
         myBitmap = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.myBitmap,
+            :locX=>0,
+            :locY=>0
+        });
+              myBitmap0 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.myBitmap0,
             :locX=>0,
             :locY=>0
         });
@@ -23,6 +31,16 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
         });
              myBitmap2 = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.myBitmap2,
+            :locX=>70,
+            :locY=>30
+        });
+        eyes = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.eyes,
+            :locX=>70,
+            :locY=>30
+        });
+        mouth = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.mouth,
             :locX=>70,
             :locY=>30
         });
@@ -68,8 +86,11 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
         myBitmap.draw(dc);
+        myBitmap0.draw(dc);
         myBitmap1.draw(dc);
         myBitmap2.draw(dc);
+        eyes.draw(dc);
+        mouth.draw(dc);
     }
 
     // Called when this View is removed from the screen. Save the
