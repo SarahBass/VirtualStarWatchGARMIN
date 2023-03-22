@@ -22,7 +22,7 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
               myBitmap0 = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.myBitmap0,
             :locX=>0,
-            :locY=>0
+            :locY=>125
         });
         myBitmap1 = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.myBitmap1,
