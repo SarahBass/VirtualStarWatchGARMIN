@@ -6,7 +6,7 @@ import Toybox.WatchUi;
 
 class VirtualStarWatchView extends WatchUi.WatchFace {
     
-    var Venus2March0;
+    var March0;
     var venus2X = 85;
     var venus2Y = 10;
       var star;
@@ -16,8 +16,8 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
         WatchFace.initialize();
         View.initialize();
        
-              Venus2March0 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.Venus2March0,
+            March0 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.March0,
             :locX=>0,
             :locY=>0
         });
@@ -77,7 +77,7 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
 
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
-        Venus2March0.draw(dc);
+        March0.draw(dc);
         star.draw(dc);
         eyes.draw(dc);
         mouth.draw(dc);
