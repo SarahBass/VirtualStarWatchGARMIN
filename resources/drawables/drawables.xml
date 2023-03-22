@@ -5,6 +5,13 @@
     <bitmap id="March2" filename="March2.png" dithering="none"/>
     <bitmap id="March3" filename="March3.png" dithering="none"/>
     <bitmap id="star" filename="star0.png" x = "center" dithering="none"/>
+     <bitmap id="star1" filename="star1.png" x = "center" dithering="none"/>
+      <bitmap id="star2" filename="star2.png" x = "center" dithering="none"/>
+       <bitmap id="star3" filename="star3.png" x = "center" dithering="none"/>
+        <bitmap id="star4" filename="star4.png" x = "center" dithering="none"/>
+         <bitmap id="star5" filename="star5.png" x = "center" dithering="none"/>
+          <bitmap id="star6" filename="star6.png" x = "center" dithering="none"/>
+          <bitmap id="Spring0" filename="Spring0.png" x = "center" dithering="none"/>
     <bitmap id="eyes" filename="eyes0.png" x = "center" dithering="none"/>
     <bitmap id="mouth" filename="mouth0.png" x = "center" dithering="none"/>
 </drawables>
