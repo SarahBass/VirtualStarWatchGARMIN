@@ -5,24 +5,45 @@ import Toybox.System;
 import Toybox.WatchUi;
 
 class VirtualStarWatchView extends WatchUi.WatchFace {
-
+    var myBitmap;
+     var myBitmap1;
+      var myBitmap2;
     function initialize() {
         WatchFace.initialize();
+        View.initialize();
+        myBitmap = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.myBitmap,
+            :locX=>0,
+            :locY=>0
+        });
+        myBitmap1 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.myBitmap1,
+            :locX=>0,
+            :locY=>0
+        });
+             myBitmap2 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.myBitmap2,
+            :locX=>70,
+            :locY=>30
+        });
     }
 
     // Load your resources here
     function onLayout(dc as Dc) as Void {
         setLayout(Rez.Layouts.WatchFace(dc));
+        
     }
 
-    // Called when this View is brought to the foreground. Restore
-    // the state of this View and prepare it to be shown. This includes
-    // loading resources into memory.
+
     function onShow() as Void {
     }
 
+
+
+
     // Update the view
     function onUpdate(dc as Dc) as Void {
+        
         // Get the current time and format it correctly
         var timeFormat = "$1$:$2$";
         var clockTime = System.getClockTime();
@@ -46,6 +67,9 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
 
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
+        myBitmap.draw(dc);
+        myBitmap1.draw(dc);
+        myBitmap2.draw(dc);
     }
 
     // Called when this View is removed from the screen. Save the
