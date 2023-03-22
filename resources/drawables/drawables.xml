@@ -1,6 +1,9 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="iconvenusq.png" />
     <bitmap id="myBitmap" filename="myBitmap.jpeg"/>
+     <bitmap id="myBitmap1" filename="myBitmap0.png"/>
     <bitmap id="myBitmap1" filename="myBitmap1.png"/>
     <bitmap id="myBitmap2" filename="myBitmap2.png"/>
+    <bitmap id="eyes" filename="eyes1.png"/>
+    <bitmap id="mouth" filename="mouth.png"/>
 </drawables>
