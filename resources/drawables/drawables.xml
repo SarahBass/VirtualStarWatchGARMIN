@@ -1,3 +1,6 @@
 <drawables>
-    <bitmap id="LauncherIcon" filename="staricon.png" />
+    <bitmap id="LauncherIcon" filename="iconvenusq.png" />
+    <bitmap id="myBitmap" filename="myBitmap.jpeg"/>
+    <bitmap id="myBitmap1" filename="myBitmap1.png"/>
+    <bitmap id="myBitmap2" filename="myBitmap2.png"/>
 </drawables>
