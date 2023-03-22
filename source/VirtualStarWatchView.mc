@@ -7,8 +7,8 @@ import Toybox.WatchUi;
 class VirtualStarWatchView extends WatchUi.WatchFace {
     
     var Venus2March0;
-    var venus2X = 125;
-    var venus2Y = 60;
+    var venus2X = 85;
+    var venus2Y = 10;
       var star;
       var eyes;
       var mouth;
