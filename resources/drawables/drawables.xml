@@ -1,13 +1,7 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="iconvenus2.png" />
     <bitmap id="Venus2March0" filename="Venus2March0.png" dithering="none"/>
-    <bitmap id="star" filename="star0.png" dithering="none"/>
-    <bitmap id="eyes" filename="eyes1.png" dithering="none">
-          <palette>
-          <color>8C6C71</color>
-          <color>5A5119</color>
-          <color>DE5F92</color>
-      </palette>
-      </bitmap>
-    <bitmap id="mouth" filename="mouth.png" dithering="none"/>
+    <bitmap id="star" filename="star0.png" x = "center" dithering="none"/>
+    <bitmap id="eyes" filename="eyes0.png" x = "center" dithering="none"/>
+    <bitmap id="mouth" filename="mouth0.png" x = "center" dithering="none"/>
 </drawables>
