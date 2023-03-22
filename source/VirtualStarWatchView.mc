@@ -5,44 +5,36 @@ import Toybox.System;
 import Toybox.WatchUi;
 
 class VirtualStarWatchView extends WatchUi.WatchFace {
-    var myBitmap;
-    var myBitmap0;
-     var myBitmap1;
-      var myBitmap2;
+    
+    var Venus2March0;
+    var venus2X = 125;
+    var venus2Y = 60;
+      var star;
       var eyes;
       var mouth;
     function initialize() {
         WatchFace.initialize();
         View.initialize();
-        myBitmap = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.myBitmap,
+       
+              Venus2March0 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.Venus2March0,
             :locX=>0,
             :locY=>0
         });
-              myBitmap0 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.myBitmap0,
-            :locX=>0,
-            :locY=>125
-        });
-        myBitmap1 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.myBitmap1,
-            :locX=>0,
-            :locY=>0
-        });
-             myBitmap2 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.myBitmap2,
-            :locX=>70,
-            :locY=>30
+             star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star,
+            :locX=> venus2X,
+            :locY=> venus2Y
         });
         eyes = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.eyes,
-            :locX=>70,
-            :locY=>30
+            :locX=> venus2X,
+            :locY=> venus2Y
         });
         mouth = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.mouth,
-            :locX=>70,
-            :locY=>30
+             :locX=> venus2X,
+            :locY=> venus2Y
         });
     }
 
@@ -85,10 +77,8 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
 
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
-        myBitmap.draw(dc);
-        myBitmap0.draw(dc);
-        myBitmap1.draw(dc);
-        myBitmap2.draw(dc);
+        Venus2March0.draw(dc);
+        star.draw(dc);
         eyes.draw(dc);
         mouth.draw(dc);
     }
