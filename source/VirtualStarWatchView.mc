@@ -3,8 +3,13 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
-
+using Toybox.Time;
+using Toybox.Time.Gregorian;
+using Toybox.System;
+using Toybox.UserProfile;
 class VirtualStarWatchView extends WatchUi.WatchFace {
+    var profile = UserProfile.getProfile();
+    //Need Activity and Activity Monitor for steps, calories, heart
     
     var March0;
     var venus2X = 85;
@@ -58,6 +63,7 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
         var timeFormat = "$1$:$2$";
         var clockTime = System.getClockTime();
         var hours = clockTime.hour;
+        var seconds = clockTime.sec;
         if (!System.getDeviceSettings().is24Hour) {
             if (hours > 12) {
                 hours = hours - 12;
@@ -68,12 +74,26 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
                 hours = hours.format("%02d");
             }
         }
-        var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
+var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
+var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+var dateString = Lang.format(
+    "$1$  , $2$ $3$ $4$",
+    [
+        today.day_of_week,
+        today.month,
+        today.day,
+        today.year
+    ] 
+);
+System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
 
         // Update the view
         var view = View.findDrawableById("TimeLabel") as Text;
+        var view2 = View.findDrawableById("DateLabel") as Text;
         view.setColor(getApp().getProperty("ForegroundColor") as Number);
         view.setText(timeString);
+        view2.setColor(getApp().getProperty("ForegroundColor") as Number);
+        view2.setText(dateString);
 
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
