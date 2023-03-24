@@ -13,6 +13,7 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
     var Month;
     var venus2X = 85;
     var venus2Y = 10;
+    var venumovey = 13;
       var star;
       var eyes;
       var eyes2;
@@ -193,15 +194,32 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
    
         Month.draw(dc);
         star.draw(dc);
+        
 
         if (minutes%2 == 0){
         eyes.draw(dc);
-        }else {eyes2.draw(dc);}
+        
+        }else {
+            eyes2.draw(dc);
+        }
 
 
         if (seconds%2 == 0){
         mouth.draw(dc);
-        }else {mouth2.draw(dc);}
+         mouth.locY = venus2Y;
+         mouth2.locY = venus2Y;
+         star.locY = venus2Y;
+         eyes.locY = venus2Y;
+         eyes2.locY = venus2Y;
+        }else {
+            mouth2.draw(dc);
+            mouth.locY = venumovey;
+            mouth2.locY = venumovey;
+            star.locY = venumovey;
+            eyes.locY = venumovey;
+            eyes2.locY = venumovey;
+            
+        }
     }
 
     // Called when this View is removed from the screen. Save the
