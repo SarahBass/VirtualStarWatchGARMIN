@@ -19,6 +19,13 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
     var venus2Y = 10;
     var venumovey = 13;
       var star;
+      var specialstar;
+      var baby;
+      var egg;
+      var goal1;
+      var goal2;
+      var goal3;
+      var goal4;
       var eyes;
       var eyes2;
       var mouth1;
@@ -76,6 +83,42 @@ today.day_of_week
             :rezId=>Rez.Drawables.mouth4,
              :locX=> venus2X,
             :locY=> venus2Y
+        });
+         star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star,
+             :locX=> venus2X,
+            :locY=> venus2Y
+        });
+                 baby = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.baby,
+             :locX=> venus2X,
+            :locY=> venus2Y
+        });
+
+            egg = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.egg,
+             :locX=> venus2X,
+            :locY=> venus2Y
+        });
+         goal1 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.goal1,
+             :locX=> 0,
+            :locY=> 0
+        });
+                 goal2 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.goal2,
+             :locX=> 0,
+            :locY=> 0
+        });
+                 goal3 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.goal3,
+             :locX=> 0,
+            :locY=> 0
+        });
+                 goal4 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.goal4,
+             :locX=> 0,
+            :locY=> 0
         });
 
         switch(fulldateString){
@@ -222,57 +265,57 @@ today.day_of_week
 
  switch (dayString){
         case "Mon":
-            star = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.star,
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star7,
             :locX=> venus2X,
             :locY=> venus2Y
         });
              break;
        case "Tue":
-            star = new WatchUi.Bitmap({
+            specialstar = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.star1,
             :locX=> venus2X,
             :locY=> venus2Y
         });
              break;      
       case "Wed":
-            star = new WatchUi.Bitmap({
+            specialstar = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.star2,
             :locX=> venus2X,
             :locY=> venus2Y
         });
              break;
       case "Thu":
-            star = new WatchUi.Bitmap({
+            specialstar = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.star3,
             :locX=> venus2X,
             :locY=> venus2Y
         });
              break;
       case "Fri":
-            star = new WatchUi.Bitmap({
+            specialstar = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.star4,
             :locX=> venus2X,
             :locY=> venus2Y
         });
              break;
        case "Sat":
-            star = new WatchUi.Bitmap({
+            specialstar = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.star5,
             :locX=> venus2X,
             :locY=> venus2Y
         });
              break;      
       case "Sun":
-            star = new WatchUi.Bitmap({
+            specialstar = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.star6,
             :locX=> venus2X,
             :locY=> venus2Y
         });
              break;
        default:    
-       star = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.star,
+       specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star4,
             :locX=> venus2X,
             :locY=> venus2Y
         });
@@ -298,6 +341,8 @@ today.day_of_week
     function onUpdate(dc as Dc) as Void {
         
         // Get the current time and format it correctly
+        var goal = 10000; 
+        var steps = 3000;
         var timeFormat = "$1$:$2$";
         var clockTime = System.getClockTime();
         var hours = clockTime.hour;
@@ -341,7 +386,12 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
         View.onUpdate(dc);
    
         Month.draw(dc);
-        star.draw(dc);
+        if (steps < goal/4){ egg.draw(dc);  }
+        else if (steps > (goal/4) && steps < ((goal*2)/4)){ baby.draw(dc);  goal1.draw(dc);}
+        else if (steps > ((goal*2)/4) && steps < ((goal*3)/4)){ star.draw(dc);  goal2.draw(dc);}
+        else if (steps > ((goal*3)/4) && steps < goal){ star.draw(dc);  goal3.draw(dc);}  
+        else if (steps >= goal ){ specialstar.draw(dc);  goal4.draw(dc);}      
+        else{ star.draw(dc);}    
         
 
         if (minutes%2 == 0){
@@ -368,6 +418,9 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
          mouth3.locY = venus2Y;
          mouth4.locY = venus2Y;
          star.locY = venus2Y;
+         egg.locY = venus2Y;
+          baby.locY = venus2Y;
+           specialstar.locY = venus2Y;
          eyes.locY = venus2Y;
          eyes2.locY = venus2Y;
         }else {
@@ -378,6 +431,9 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
             star.locY = venumovey;
             eyes.locY = venumovey;
             eyes2.locY = venumovey;
+            egg.locY = venumovey;
+            baby.locY = venumovey;
+           specialstar.locY =venumovey;
             
         }
     }
