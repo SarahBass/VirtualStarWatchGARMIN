@@ -19,6 +19,7 @@
         <bitmap id="star4" filename="star4.png" x = "center" dithering="none"/>
          <bitmap id="star5" filename="star5.png" x = "center" dithering="none"/>
           <bitmap id="star6" filename="star6.png" x = "center" dithering="none"/>
+           <bitmap id="star7" filename="star7.png" x = "center" dithering="none"/>
     <bitmap id="eyes" filename="eyes0.png" x = "center" dithering="none"/>
     <bitmap id="mouth1" filename="mouth0.png" x = "center" dithering="none"/>
      <bitmap id="eyes1" filename="eyes1.png" x = "center" dithering="none"/>
@@ -30,9 +31,9 @@
 <bitmap id="dia" filename="dia.jpeg" x = "center" dithering="none"/>
 <bitmap id="egg" filename="egg.png" x = "center" dithering="none"/>
 <bitmap id="goal1" filename="goal1.png" x = "center" dithering="none"/>
-<bitmap id="goal2" filename="goal1.png" x = "center" dithering="none"/>
-<bitmap id="goal3" filename="goal1.png" x = "center" dithering="none"/>
-<bitmap id="goal4" filename="goal1.png" x = "center" dithering="none"/>
+<bitmap id="goal2" filename="goal2.png" x = "center" dithering="none"/>
+<bitmap id="goal3" filename="goal3.png" x = "center" dithering="none"/>
+<bitmap id="goal4" filename="goal4.png" x = "center" dithering="none"/>
 <bitmap id="stardecember" filename="stardecember.png" x = "center" dithering="none"/>
 <bitmap id="stareaster" filename="stareaster.png" x = "center" dithering="none"/>
 <bitmap id="starjuneteenth" filename="starjuneteenth.png" x = "center" dithering="none"/>
