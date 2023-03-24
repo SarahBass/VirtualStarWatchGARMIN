@@ -7,6 +7,10 @@ using Toybox.Time;
 using Toybox.Time.Gregorian;
 using Toybox.System; 
 using Toybox.UserProfile;
+import Toybox.ActivityMonitor;
+import Toybox.Activity;
+import Toybox.Math;
+import Toybox.Application.Storage;
 class VirtualStarWatchView extends WatchUi.WatchFace {
     var profile = UserProfile.getProfile();
     //Need Activity and Activity Monitor for steps, calories, heart
@@ -26,6 +30,13 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
         WatchFace.initialize();
         View.initialize();
 var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+var fulldateString = Lang.format(
+    "$1$ $2$",
+    [
+        today.month,
+        today.day,
+    ] 
+);
 var monthString = Lang.format(
     "$1$",
 [
@@ -67,7 +78,51 @@ today.day_of_week
             :locY=> venus2Y
         });
 
-      switch (monthString){
+        switch(fulldateString){
+           case "Feb 10": 
+            Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.chinesenewyear,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+         case "May 5": 
+            Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dia,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+         case "Nov 1": 
+            Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dia,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+         case "Nov 2": 
+            Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.dia,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+         case "Jan 29": 
+            Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.chinesenewyear,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+         case "Feb 10": 
+            Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.chinesenewyear,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        default:    
+ switch (monthString){
         case "Jan":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.January,
@@ -161,6 +216,9 @@ today.day_of_week
         });  
          
         }
+        }
+
+     
 
  switch (dayString){
         case "Mon":
