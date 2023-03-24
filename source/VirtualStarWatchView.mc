@@ -20,7 +20,7 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
     //Need Activity and Activity Monitor for steps, calories, heart
     var sensorIter = getIterator();
     var Month;
-    var venus2X = 85;
+    var venus2X = LAYOUT_HALIGN_CENTER;
     var venus2Y = 10;
     var venumovey = 13;
       var star;
@@ -108,22 +108,22 @@ today.day_of_week
         });
          goal1 = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.goal1,
-             :locX=> 0,
+             :locX=> LAYOUT_HALIGN_CENTER,
             :locY=> 0
         });
                  goal2 = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.goal2,
-             :locX=> 0,
+             :locX=>LAYOUT_HALIGN_CENTER,
             :locY=> 0
         });
                  goal3 = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.goal3,
-             :locX=> 0,
+             :locX=> LAYOUT_HALIGN_CENTER,
             :locY=> 0
         });
                  goal4 = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.goal4,
-             :locX=> 0,
+             :locX=> LAYOUT_HALIGN_CENTER,
             :locY=> 0
         });
 
@@ -134,14 +134,14 @@ today.day_of_week
         case "Jan":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.chinesenewyear,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Feb":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.February,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
@@ -149,77 +149,77 @@ today.day_of_week
         case "Mar":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.March,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Apr":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.April,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "May":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.dia,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Jun":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.June,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Jul":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.July,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Aug":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.August,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Sep":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.September,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Oct":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.October,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Nov":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.November,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;
         case "Dec":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.December,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });
         break;                                                    
         default:    
             Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.September,
-            :locX=>0,
+            :locX=>LAYOUT_HALIGN_CENTER,
             :locY=>0
         });  
          
@@ -592,3 +592,4 @@ function getIterator() {
     }
 
 }
+ 
