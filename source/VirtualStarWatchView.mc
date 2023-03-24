@@ -522,33 +522,20 @@ System.println("You have taken: " + steps +
   // Update the view
         var view = View.findDrawableById("TimeLabel") as Text;
         var view2 = View.findDrawableById("DateLabel") as Text;
-  var view3 = View.findDrawableById("batteryLabel") as Text;
-     var view4 = View.findDrawableById("heartLabel") as Text;
-      var view5 = View.findDrawableById("stepsLabel") as Text;
-    var view6 = View.findDrawableById("caloriesLabel") as Text;
-       
-       
-        
-     
-       // view4.setColor(getApp().getProperty("ForegroundColor") as Number);
-      //  view5.setColor(getApp().getProperty("ForegroundColor") as Number);
+ 
+  
     view.setText(timeString);
         view2.setText(dateString);
-        view3.setText("100");
-        view4.setText("60");
-      view5.setText(""+steps);
 
-        //view4.setText("60");
-       // view5.setText("1000");
-     view6.setText(""+calories);
         // Call the parent onUpdate function to redraw the layout
         //call star initialize for monthly and daily
         //call eyes and mouth here for second and minute update
-        View.onUpdate(dc);
+       
 
       
-   
+   View.onUpdate(dc);
         Month.draw(dc);
+         
         if (fakesteps < goal/4){ egg.draw(dc);  }
         else if (fakesteps > (goal/4) && fakesteps < ((goal*2)/4)){ baby.draw(dc);  goal1.draw(dc);}
         else if (fakesteps > ((goal*2)/4) && fakesteps < ((goal*3)/4)){ star.draw(dc);  goal2.draw(dc);}
@@ -601,6 +588,15 @@ System.println("You have taken: " + steps +
         }
 
 
+ var view3 = View.findDrawableById("batteryLabel") as Text;
+     var view4 = View.findDrawableById("heartLabel") as Text;
+      var view5 = View.findDrawableById("stepsLabel") as Text;
+    var view6 = View.findDrawableById("caloriesLabel") as Text;
+       
+        view3.setText("100");
+        view4.setText("60");
+      view5.setText(""+steps);
+     view6.setText(""+calories);
 
     }
 
