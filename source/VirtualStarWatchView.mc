@@ -17,8 +17,10 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
       var star;
       var eyes;
       var eyes2;
-      var mouth;
+      var mouth1;
       var mouth2;
+      var mouth3;
+      var mouth4;
     function initialize() {
         
         WatchFace.initialize();
@@ -39,8 +41,8 @@ today.day_of_week
             :locX=> venus2X,
             :locY=> venus2Y
         });
-        mouth = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.mouth,
+        mouth1 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.mouth1,
              :locX=> venus2X,
             :locY=> venus2Y
         });
@@ -50,7 +52,17 @@ today.day_of_week
             :locY=> venus2Y
         });
         mouth2 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.mouth1,
+            :rezId=>Rez.Drawables.mouth2,
+             :locX=> venus2X,
+            :locY=> venus2Y
+        });
+         mouth3 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.mouth3,
+             :locX=> venus2X,
+            :locY=> venus2Y
+        });
+         mouth4 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.mouth4,
              :locX=> venus2X,
             :locY=> venus2Y
         });
@@ -203,18 +215,30 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
             eyes2.draw(dc);
         }
 
+       if (minutes%4 == 0){
+        if (seconds%2 == 0){mouth1.draw(dc);}else{mouth2.draw(dc);}
+       }
+       if (minutes%4 == 1){
+        if (seconds%2 == 0){mouth4.draw(dc);}else{mouth2.draw(dc);}
+       }
+       if (minutes%4 == 0){
+        if (seconds%2 == 0){mouth3.draw(dc);}else{mouth2.draw(dc);}
+       }
+       else{if (seconds%2 == 0){mouth3.draw(dc);}else{mouth4.draw(dc);}}
 
         if (seconds%2 == 0){
-        mouth.draw(dc);
-         mouth.locY = venus2Y;
+         mouth1.locY = venus2Y;
          mouth2.locY = venus2Y;
+         mouth3.locY = venus2Y;
+         mouth4.locY = venus2Y;
          star.locY = venus2Y;
          eyes.locY = venus2Y;
          eyes2.locY = venus2Y;
         }else {
-            mouth2.draw(dc);
-            mouth.locY = venumovey;
+            mouth1.locY = venumovey;
             mouth2.locY = venumovey;
+            mouth3.locY = venus2Y;
+            mouth4.locY = venus2Y;
             star.locY = venumovey;
             eyes.locY = venumovey;
             eyes2.locY = venumovey;
