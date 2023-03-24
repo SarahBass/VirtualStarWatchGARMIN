@@ -127,54 +127,13 @@ today.day_of_week
             :locY=> 0
         });
 
-        switch(fulldateString){
-           case "Feb 10": 
-            Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.chinesenewyear,
-            :locX=>0,
-            :locY=>0
-        });
-        break;
-         case "May 5": 
-            Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.dia,
-            :locX=>0,
-            :locY=>0
-        });
-        break;
-         case "Nov 1": 
-            Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.dia,
-            :locX=>0,
-            :locY=>0
-        });
-        break;
-         case "Nov 2": 
-            Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.dia,
-            :locX=>0,
-            :locY=>0
-        });
-        break;
-         case "Jan 29": 
-            Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.chinesenewyear,
-            :locX=>0,
-            :locY=>0
-        });
-        break;
-         case "Feb 10": 
-            Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.chinesenewyear,
-            :locX=>0,
-            :locY=>0
-        });
-        break;
-        default:    
+        
+        
+      
  switch (monthString){
         case "Jan":
         Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.January,
+            :rezId=>Rez.Drawables.chinesenewyear,
             :locX=>0,
             :locY=>0
         });
@@ -203,7 +162,7 @@ today.day_of_week
         break;
         case "May":
         Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.May,
+            :rezId=>Rez.Drawables.dia,
             :locX=>0,
             :locY=>0
         });
@@ -265,7 +224,7 @@ today.day_of_week
         });  
          
         }
-        }
+        
 
      
 
@@ -482,8 +441,8 @@ today.day_of_week
     function onUpdate(dc as Dc) as Void {
         
         // Get the current time and format it correctly
-        var goal = 10000; 
-        var fakesteps = 8000;
+        var goal = 5000; 
+       
         var timeFormat = "$1$:$2$";
         var clockTime = System.getClockTime();
         var hours = clockTime.hour;
@@ -552,7 +511,7 @@ if (seconds%2 == 0){if (sensorIter != null) {
       
         View.onUpdate(dc);
         Month.draw(dc);
-         
+         var fakesteps = info.steps; 
         if (fakesteps < goal/4){ egg.draw(dc);  }
         else if (fakesteps > (goal/4) && fakesteps < ((goal*2)/4)){ baby.draw(dc);  goal1.draw(dc);}
         else if (fakesteps > ((goal*2)/4) && fakesteps < ((goal*3)/4)){ star.draw(dc);  goal2.draw(dc);}
@@ -631,5 +590,5 @@ function getIterator() {
     // Terminate any active timers and prepare for slow updates.
     function onEnterSleep() as Void {
     }
- 
+
 }
