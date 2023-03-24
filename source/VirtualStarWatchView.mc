@@ -13,11 +13,12 @@ import Toybox.Math;
 import Toybox.Application.Storage;
 using Toybox.ActivityMonitor;
 using Toybox.System;
-
+using Toybox.SensorHistory;
 
 class VirtualStarWatchView extends WatchUi.WatchFace {
     var profile = UserProfile.getProfile();
     //Need Activity and Activity Monitor for steps, calories, heart
+    var sensorIter = getIterator();
     var Month;
     var venus2X = 85;
     var venus2Y = 10;
@@ -37,7 +38,8 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
       var mouth3;
       var mouth4;
     function initialize() {
-        
+    
+    
         WatchFace.initialize();
         View.initialize();
 var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
@@ -511,29 +513,44 @@ var dateString = Lang.format(
 
 
 // get ActivityMonitor info
+
+var myStats = System.getSystemStats();
 var info = ActivityMonitor.getInfo();
-
-var steps = info.steps;
+var battery = Lang.format("$1$",[((myStats.battery)).format("%2d")]);
+var batterylife = Lang.format("$1$",[(myStats.batteryInDays).format("%2d")]);
+var steps = (info.steps);
 var calories = info.calories;
+var heart = "";
+if (seconds%2 == 0){if (sensorIter != null) {
+     heart =(sensorIter.next().data);
+ }else { heart = "";}}else {heart = "";}
+//System.println("You have taken: " + steps +
+//               " steps and burned: " + calories + " calories!");
 
-System.println("You have taken: " + steps +
-               " steps and burned: " + calories + " calories!");
-
+//System.println(myStats.totalMemory);
+//System.println(myStats.usedMemory);
+//System.println(myStats.freeMemory);
   // Update the view
         var view = View.findDrawableById("TimeLabel") as Text;
         var view2 = View.findDrawableById("DateLabel") as Text;
- 
-  
-    view.setText(timeString);
+        var view3 = View.findDrawableById("batteryLabel") as Text;
+        var view4 = View.findDrawableById("heartLabel") as Text;
+        var view5 = View.findDrawableById("stepsLabel") as Text;
+        var view6 = View.findDrawableById("caloriesLabel") as Text;
+        view.setText(timeString);
         view2.setText(dateString);
-
-        // Call the parent onUpdate function to redraw the layout
-        //call star initialize for monthly and daily
-        //call eyes and mouth here for second and minute update
+                if (myStats.charging == true){view3.setText("CHARGE");}
+        else{
+            if (minutes%2 == 0){ view3.setText(" "+battery + "%");}
+            else{view3.setText("DAYS:"+ batterylife) ;} } 
+        
+        view4.setText("-"+heart+"-");
+        view5.setText(""+steps);
+        view6.setText(""+calories);
        
 
       
-   View.onUpdate(dc);
+        View.onUpdate(dc);
         Month.draw(dc);
          
         if (fakesteps < goal/4){ egg.draw(dc);  }
@@ -588,23 +605,24 @@ System.println("You have taken: " + steps +
         }
 
 
- var view3 = View.findDrawableById("batteryLabel") as Text;
-     var view4 = View.findDrawableById("heartLabel") as Text;
-      var view5 = View.findDrawableById("stepsLabel") as Text;
-    var view6 = View.findDrawableById("caloriesLabel") as Text;
-       
-        view3.setText("100");
-        view4.setText("60");
-      view5.setText(""+steps);
-     view6.setText(""+calories);
+ }
 
-    }
+   
 
     // Called when this View is removed from the screen. Save the
     // state of this View here. This includes freeing resources from
     // memory.
     function onHide() as Void {
     }
+
+
+function getIterator() {
+    // Check device for SensorHistory compatibility
+    if ((Toybox has :SensorHistory) && (Toybox.SensorHistory has :getHeartRateHistory)) {
+        return Toybox.SensorHistory.getHeartRateHistory({});
+    }
+    return null;
+}
 
     // The user has just looked at their watch. Timers and animations may be started here.
     function onExitSleep() as Void {
