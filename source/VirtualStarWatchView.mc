@@ -5,32 +5,34 @@ import Toybox.System;
 import Toybox.WatchUi;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
-using Toybox.System;
+using Toybox.System; 
 using Toybox.UserProfile;
 class VirtualStarWatchView extends WatchUi.WatchFace {
     var profile = UserProfile.getProfile();
     //Need Activity and Activity Monitor for steps, calories, heart
-    
-    var March0;
+    var Month;
     var venus2X = 85;
     var venus2Y = 10;
       var star;
       var eyes;
+      var eyes2;
       var mouth;
+      var mouth2;
     function initialize() {
+        
         WatchFace.initialize();
         View.initialize();
-       
-            March0 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.March0,
-            :locX=>0,
-            :locY=>0
-        });
-             star = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.star,
-            :locX=> venus2X,
-            :locY=> venus2Y
-        });
+var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+var monthString = Lang.format(
+    "$1$",
+[
+today.month
+]);
+var dayString = Lang.format(
+    "$1$",
+[
+today.day_of_week
+]);
         eyes = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.eyes,
             :locX=> venus2X,
@@ -41,6 +43,84 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
              :locX=> venus2X,
             :locY=> venus2Y
         });
+
+
+      switch (monthString){
+        case "Mar":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.March,
+            :locX=>0,
+            :locY=>0
+        });
+
+                    break;
+        default:    
+            Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.April,
+            :locX=>0,
+            :locY=>0
+        });   
+        }
+
+ switch (dayString){
+        case "Mon":
+            star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+       case "Tue":
+            star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star1,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;      
+      case "Wed":
+            star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star2,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+      case "Thu":
+            star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star3,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+      case "Fri":
+            star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star4,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+       case "Sat":
+            star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star5,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;      
+      case "Sun":
+            star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star6,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+       default:    
+       star = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.star,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+      }
+
+
     }
 
     // Load your resources here
@@ -77,7 +157,7 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
 var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
 var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
 var dateString = Lang.format(
-    "$1$  , $2$ $3$ $4$",
+    "$1$ , $2$ $3$ $4$",
     [
         today.day_of_week,
         today.month,
@@ -85,6 +165,7 @@ var dateString = Lang.format(
         today.year
     ] 
 );
+
 System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
 
         // Update the view
@@ -96,8 +177,11 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
         view2.setText(dateString);
 
         // Call the parent onUpdate function to redraw the layout
+        //call star initialize for monthly and daily
+        //call eyes and mouth here for second and minute update
         View.onUpdate(dc);
-        March0.draw(dc);
+   
+        Month.draw(dc);
         star.draw(dc);
         eyes.draw(dc);
         mouth.draw(dc);
