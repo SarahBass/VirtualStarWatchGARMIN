@@ -215,16 +215,16 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
             eyes2.draw(dc);
         }
 
-       if (minutes%4 == 0){
+       if (minutes%4 == 1){
         if (seconds%2 == 0){mouth1.draw(dc);}else{mouth2.draw(dc);}
        }
-       if (minutes%4 == 1){
+       else if (minutes%4 == 2){
         if (seconds%2 == 0){mouth4.draw(dc);}else{mouth2.draw(dc);}
        }
-       if (minutes%4 == 0){
+       else if (minutes%4 == 3){
         if (seconds%2 == 0){mouth3.draw(dc);}else{mouth2.draw(dc);}
        }
-       else{if (seconds%2 == 0){mouth3.draw(dc);}else{mouth4.draw(dc);}}
+       else{if (seconds%2 == 0){mouth1.draw(dc);}else{mouth4.draw(dc);}}
 
         if (seconds%2 == 0){
          mouth1.locY = venus2Y;
