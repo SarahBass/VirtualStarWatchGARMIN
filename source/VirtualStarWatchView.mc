@@ -263,6 +263,141 @@ today.day_of_week
 
      
 
+        switch(fulldateString){
+           case "Dec 25":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.stardecember,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+            break;
+            case "Dec 1":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.stardecember,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+            case "Dec 24":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.stardecember,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+            break;
+            case "Apr 9":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.stareaster,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+             case "Mar 31":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.stareaster,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+            case "Apr 20":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.stareaster,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+             case "Apr 5":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.stareaster,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;     
+             case "Jul 4":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starjuly4,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+             case "Nov 11":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starjuly4,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+            case "May 29":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starjuly4,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+            case "Jun 19":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starjuneteenth,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+            case "Jan 15":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starjuneteenth,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;
+             case "Mar 17":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starmarch,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;       
+                                 case "Nov 25":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starnovember,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break; 
+                                   case "Nov 24":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starnovember,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;    
+                                    case "Nov 4":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.starnovember,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;   
+                                     case "Oct 1":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.staroctober,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break; 
+                                     case "Oct 13":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.staroctober,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break;   
+                                         case "Oct 31":  
+            specialstar = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.staroctober,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+             break; 
+         default:                                       
  switch (dayString){
         case "Mon":
             specialstar = new WatchUi.Bitmap({
@@ -320,7 +455,7 @@ today.day_of_week
             :locY=> venus2Y
         });
       }
-
+        }
 
     }
 
