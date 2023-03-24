@@ -68,20 +68,98 @@ today.day_of_week
         });
 
       switch (monthString){
+        case "Jan":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.January,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        case "Feb":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.February,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        
         case "Mar":
         Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.March,
             :locX=>0,
             :locY=>0
         });
-
         break;
-        default:    
-            Month = new WatchUi.Bitmap({
+        case "Apr":
+        Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.April,
             :locX=>0,
             :locY=>0
-        });   
+        });
+        break;
+        case "May":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.May,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        case "Jun":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.June,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        case "Jul":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.July,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        case "Aug":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.August,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        case "Sep":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.September,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        case "Oct":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.October,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        case "Nov":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.November,
+            :locX=>0,
+            :locY=>0
+        });
+        break;
+        case "Dec":
+        Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.December,
+            :locX=>0,
+            :locY=>0
+        });
+        break;                                                    
+        default:    
+            Month = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.September,
+            :locX=>0,
+            :locY=>0
+        });  
+         
         }
 
  switch (dayString){
