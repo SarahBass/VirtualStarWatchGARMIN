@@ -1,5 +1,5 @@
 # VirtualStarWatchGARMIN
-Monkey C Version of Virtual Star Watch for Venu Products
+Monkey C Version of Virtual Star Watch for Venu 2, VenuS2, VenuPlus Products
 
 Version 1 Working and Complete - but File Size and Memory Use High. Memory: 40 . File Size: 6.3 MB
 
