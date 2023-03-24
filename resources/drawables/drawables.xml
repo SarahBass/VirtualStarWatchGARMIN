@@ -37,6 +37,7 @@
 <bitmap id="stardecember" filename="stardecember.png" x = "center" dithering="none"/>
 <bitmap id="stareaster" filename="stareaster.png" x = "center" dithering="none"/>
 <bitmap id="starjuneteenth" filename="starjuneteenth.png" x = "center" dithering="none"/>
+<bitmap id="starjuly4" filename="starjuly4.png" x = "center" dithering="none"/>
 <bitmap id="starmarch" filename="starmarch.png" x = "center" dithering="none"/>
 <bitmap id="starnovember" filename="starnovember.png" x = "center" dithering="none"/>
 <bitmap id="staroctober" filename="staroctober.png" x = "center" dithering="none"/>
