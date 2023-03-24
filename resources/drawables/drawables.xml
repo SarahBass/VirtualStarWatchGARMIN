@@ -11,7 +11,7 @@
     <bitmap id="September" filename="september.jpeg" dithering="none"/>
     <bitmap id="October" filename="october.jpeg" dithering="none"/>
     <bitmap id="November" filename="november.jpeg" dithering="none"/>
-    <bitmap id="January" filename="january.jpeg" dithering="none"/>
+    <bitmap id="December" filename="december.jpeg" dithering="none"/>
     <bitmap id="star" filename="star0.png" x = "center" dithering="none"/>
      <bitmap id="star1" filename="star1.png" x = "center" dithering="none"/>
       <bitmap id="star2" filename="star2.png" x = "center" dithering="none"/>
@@ -25,4 +25,18 @@
     <bitmap id="mouth2" filename="mouth1.png" x = "center" dithering="none"/>
      <bitmap id="mouth3" filename="mouth2.png" x = "center" dithering="none"/>
       <bitmap id="mouth4" filename="mouth3.png" x = "center" dithering="none"/>
+<bitmap id="chinesenewyear" filename="chinesenewyear.jpeg" x = "center" dithering="none"/>
+<bitmap id="baby" filename="baby.png" x = "center" dithering="none"/>
+<bitmap id="dia" filename="dia.jpeg" x = "center" dithering="none"/>
+<bitmap id="egg" filename="egg.png" x = "center" dithering="none"/>
+<bitmap id="goal1" filename="goal1.png" x = "center" dithering="none"/>
+<bitmap id="goal2" filename="goal1.png" x = "center" dithering="none"/>
+<bitmap id="goal3" filename="goal1.png" x = "center" dithering="none"/>
+<bitmap id="goal4" filename="goal1.png" x = "center" dithering="none"/>
+<bitmap id="stardecember" filename="stardecember.png" x = "center" dithering="none"/>
+<bitmap id="stareaster" filename="stareaster.png" x = "center" dithering="none"/>
+<bitmap id="starjuneteenth" filename="starjuneteenth.png" x = "center" dithering="none"/>
+<bitmap id="starmarch" filename="starmarch.png" x = "center" dithering="none"/>
+<bitmap id="starnovember" filename="starnovember.png" x = "center" dithering="none"/>
+<bitmap id="staroctober" filename="staroctober.png" x = "center" dithering="none"/>
 </drawables>
