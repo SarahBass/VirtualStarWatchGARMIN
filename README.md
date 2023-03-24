@@ -4,9 +4,13 @@ Monkey C Version of Virtual Star Watch for Venu Products
 Version 1 Working and Complete - but File Size and Memory Use High. Memory: 40 . File Size: 6.3 MB
 
 I might turn this into 4 watches to reduce everything.
+
 1 Watch changes contains stars, but no background :  Star Pet
+
 1 watch has maybe 4 simple backgrounds and contains star wth weather : Weather Star
+
 1 Watch changes backgrounds for holiday but has no star: Holiday Paper Cutout
+
 1 Watch Huge : Holiday Star
 
 
