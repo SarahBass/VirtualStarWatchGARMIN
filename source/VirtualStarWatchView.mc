@@ -43,7 +43,16 @@ today.day_of_week
              :locX=> venus2X,
             :locY=> venus2Y
         });
-
+ eyes2 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.eyes1,
+            :locX=> venus2X,
+            :locY=> venus2Y
+        });
+        mouth2 = new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.mouth1,
+             :locX=> venus2X,
+            :locY=> venus2Y
+        });
 
       switch (monthString){
         case "Mar":
@@ -53,7 +62,7 @@ today.day_of_week
             :locY=>0
         });
 
-                    break;
+        break;
         default:    
             Month = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.April,
@@ -143,6 +152,7 @@ today.day_of_week
         var timeFormat = "$1$:$2$";
         var clockTime = System.getClockTime();
         var hours = clockTime.hour;
+        var minutes = clockTime.min;
         var seconds = clockTime.sec;
         if (!System.getDeviceSettings().is24Hour) {
             if (hours > 12) {
@@ -183,8 +193,15 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
    
         Month.draw(dc);
         star.draw(dc);
+
+        if (minutes%2 == 0){
         eyes.draw(dc);
+        }else {eyes2.draw(dc);}
+
+
+        if (seconds%2 == 0){
         mouth.draw(dc);
+        }else {mouth2.draw(dc);}
     }
 
     // Called when this View is removed from the screen. Save the
