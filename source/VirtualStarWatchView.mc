@@ -502,9 +502,9 @@ if (seconds%2 == 0){if (sensorIter != null) {
         else{
             if (minutes%2 == 0){ view3.setText(" "+battery + "%");}
             else{view3.setText("DAYS:"+ batterylife) ;} } 
-             view3.locX = (((System.getDeviceSettings().screenWidth)/6)+1);
-        view4.locX = (((System.getDeviceSettings().screenWidth)/3))+3;
-        view6.locX = ((((System.getDeviceSettings().screenWidth)*3)/4)-6);
+             view3.locX = (((System.getDeviceSettings().screenWidth)/6));
+        view4.locX = (((System.getDeviceSettings().screenWidth)/3));
+        view6.locX = ((((System.getDeviceSettings().screenWidth)*3)/4));
         view4.setText("-"+heart+"-");
         view5.setText(""+steps);
         view6.setText(""+calories);
