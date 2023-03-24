@@ -1,9 +1,17 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="iconvenus2.png" />
-    <bitmap id="March0" filename="March0.png" dithering="none"/>
-    <bitmap id="March1" filename="March1.png" dithering="none"/>
-    <bitmap id="March2" filename="March2.png" dithering="none"/>
-    <bitmap id="March3" filename="March3.png" dithering="none"/>
+    <bitmap id="January" filename="january.jpeg" dithering="none"/>
+    <bitmap id="February" filename="february.jpeg" dithering="none"/>
+    <bitmap id="March" filename="march.jpeg" dithering="none"/>
+    <bitmap id="April" filename="april.jpeg" dithering="none"/>
+    <bitmap id="May" filename="may.jpeg" dithering="none"/>
+    <bitmap id="June" filename="june.jpeg" dithering="none"/>
+    <bitmap id="July" filename="july.jpeg" dithering="none"/>
+    <bitmap id="August" filename="august.jpeg" dithering="none"/>
+    <bitmap id="September" filename="september.jpeg" dithering="none"/>
+    <bitmap id="October" filename="october.jpeg" dithering="none"/>
+    <bitmap id="November" filename="november.jpeg" dithering="none"/>
+    <bitmap id="January" filename="january.jpeg" dithering="none"/>
     <bitmap id="star" filename="star0.png" x = "center" dithering="none"/>
      <bitmap id="star1" filename="star1.png" x = "center" dithering="none"/>
       <bitmap id="star2" filename="star2.png" x = "center" dithering="none"/>
@@ -11,7 +19,10 @@
         <bitmap id="star4" filename="star4.png" x = "center" dithering="none"/>
          <bitmap id="star5" filename="star5.png" x = "center" dithering="none"/>
           <bitmap id="star6" filename="star6.png" x = "center" dithering="none"/>
-          <bitmap id="Spring0" filename="Spring0.png" x = "center" dithering="none"/>
     <bitmap id="eyes" filename="eyes0.png" x = "center" dithering="none"/>
-    <bitmap id="mouth" filename="mouth0.png" x = "center" dithering="none"/>
+    <bitmap id="mouth1" filename="mouth0.png" x = "center" dithering="none"/>
+     <bitmap id="eyes1" filename="eyes1.png" x = "center" dithering="none"/>
+    <bitmap id="mouth2" filename="mouth1.png" x = "center" dithering="none"/>
+     <bitmap id="mouth3" filename="mouth2.png" x = "center" dithering="none"/>
+      <bitmap id="mouth4" filename="mouth3.png" x = "center" dithering="none"/>
 </drawables>
