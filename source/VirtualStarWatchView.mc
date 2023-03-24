@@ -11,6 +11,10 @@ import Toybox.ActivityMonitor;
 import Toybox.Activity;
 import Toybox.Math;
 import Toybox.Application.Storage;
+using Toybox.ActivityMonitor;
+using Toybox.System;
+
+
 class VirtualStarWatchView extends WatchUi.WatchFace {
     var profile = UserProfile.getProfile();
     //Need Activity and Activity Monitor for steps, calories, heart
@@ -477,7 +481,7 @@ today.day_of_week
         
         // Get the current time and format it correctly
         var goal = 10000; 
-        var steps = 3000;
+        var fakesteps = 8000;
         var timeFormat = "$1$:$2$";
         var clockTime = System.getClockTime();
         var hours = clockTime.hour;
@@ -505,27 +509,51 @@ var dateString = Lang.format(
     ] 
 );
 
-System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
 
-        // Update the view
+// get ActivityMonitor info
+var info = ActivityMonitor.getInfo();
+
+var steps = info.steps;
+var calories = info.calories;
+
+System.println("You have taken: " + steps +
+               " steps and burned: " + calories + " calories!");
+
+  // Update the view
         var view = View.findDrawableById("TimeLabel") as Text;
         var view2 = View.findDrawableById("DateLabel") as Text;
-        view.setColor(getApp().getProperty("ForegroundColor") as Number);
-        view.setText(timeString);
-        view2.setColor(getApp().getProperty("ForegroundColor") as Number);
+  var view3 = View.findDrawableById("batteryLabel") as Text;
+     var view4 = View.findDrawableById("heartLabel") as Text;
+      var view5 = View.findDrawableById("stepsLabel") as Text;
+    var view6 = View.findDrawableById("caloriesLabel") as Text;
+       
+       
+        
+     
+       // view4.setColor(getApp().getProperty("ForegroundColor") as Number);
+      //  view5.setColor(getApp().getProperty("ForegroundColor") as Number);
+    view.setText(timeString);
         view2.setText(dateString);
+        view3.setText("100");
+        view4.setText("60");
+      view5.setText(""+steps);
 
+        //view4.setText("60");
+       // view5.setText("1000");
+     view6.setText(""+calories);
         // Call the parent onUpdate function to redraw the layout
         //call star initialize for monthly and daily
         //call eyes and mouth here for second and minute update
         View.onUpdate(dc);
+
+      
    
         Month.draw(dc);
-        if (steps < goal/4){ egg.draw(dc);  }
-        else if (steps > (goal/4) && steps < ((goal*2)/4)){ baby.draw(dc);  goal1.draw(dc);}
-        else if (steps > ((goal*2)/4) && steps < ((goal*3)/4)){ star.draw(dc);  goal2.draw(dc);}
-        else if (steps > ((goal*3)/4) && steps < goal){ star.draw(dc);  goal3.draw(dc);}  
-        else if (steps >= goal ){ specialstar.draw(dc);  goal4.draw(dc);}      
+        if (fakesteps < goal/4){ egg.draw(dc);  }
+        else if (fakesteps > (goal/4) && fakesteps < ((goal*2)/4)){ baby.draw(dc);  goal1.draw(dc);}
+        else if (fakesteps > ((goal*2)/4) && fakesteps < ((goal*3)/4)){ star.draw(dc);  goal2.draw(dc);}
+        else if (fakesteps > ((goal*3)/4) && fakesteps < goal){ star.draw(dc);  goal3.draw(dc);}  
+        else if (fakesteps >= goal ){ specialstar.draw(dc);  goal4.draw(dc);}      
         else{ star.draw(dc);}    
         
 
@@ -571,6 +599,9 @@ System.println(dateString); // e.g. "16:28:32 Wed 1 Mar 2017"
            specialstar.locY =venumovey;
             
         }
+
+
+
     }
 
     // Called when this View is removed from the screen. Save the
