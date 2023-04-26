@@ -398,10 +398,10 @@ if (seconds%2 == 0){if (sensorIter != null) {
     }
 );
         }
-        System.println("");
-        var sunset = Toybox.Weather.getSunset(positions, timeStamp);
-        var sunrise = Toybox.Weather.getSunrise(positions, timeStamp);
-		
+        
+        var sunset = Time.Gregorian.info(Toybox.Weather.getSunset(positions, timeStamp), Time.FORMAT_MEDIUM);
+        //var sunrise = Toybox.Weather.getSunrise(positions, timeStamp);
+		System.println(sunset.hour + ":" + sunset.min);
 //System.println("You have taken: " + steps +
 //               " steps and burned: " + calories + " calories!");
 //System.println(myStats.totalMemory);
