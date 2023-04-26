@@ -401,7 +401,18 @@ if (seconds%2 == 0){if (sensorIter != null) {
         
         var sunset = Time.Gregorian.info(Toybox.Weather.getSunset(positions, timeStamp), Time.FORMAT_MEDIUM);
         //var sunrise = Toybox.Weather.getSunrise(positions, timeStamp);
-		System.println(sunset.hour + ":" + sunset.min);
+		 var sunsetHour = sunset.hour;
+         if (!System.getDeviceSettings().is24Hour) {
+            if (sunset.hour > 12) {
+                sunsetHour = (hours - 12).abs();
+            }
+        } else {
+            if (getApp().getProperty("UseMilitaryFormat")) {
+                timeFormat = "$1$$2$";
+                sunsetHour = sunset.hour.format("%02d");
+            }
+        }
+        System.println(sunsetHour + ":" + sunset.min.format("%02u"));
 //System.println("You have taken: " + steps +
 //               " steps and burned: " + calories + " calories!");
 //System.println(myStats.totalMemory);
