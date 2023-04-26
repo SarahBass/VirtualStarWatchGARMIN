@@ -3,29 +3,37 @@ import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
-using Toybox.Time;
-using Toybox.Time.Gregorian;
-using Toybox.System; 
-using Toybox.UserProfile;
 import Toybox.ActivityMonitor;
 import Toybox.Activity;
 import Toybox.Math;
 import Toybox.Application.Storage;
+import Toybox.Weather;
+import Toybox.Time;
+import Toybox.Position;
+using Toybox.Time;
+using Toybox.Time.Gregorian;
+using Toybox.System; 
+using Toybox.UserProfile;
 using Toybox.ActivityMonitor;
-using Toybox.System;
 using Toybox.SensorHistory;
+using Toybox.Position;
 
-class VirtualStarWatchView extends WatchUi.WatchFace {
-    var profile = UserProfile.getProfile();
+
+
+class VirtualStarPetView extends WatchUi.WatchFace {
+   
     //Need Activity and Activity Monitor for steps, calories, heart
     var sensorIter = getIterator();
-    var Month;
-    var venus2X = LAYOUT_HALIGN_CENTER;
-    var venus2Y = 10;
-    var venumovey = 13;
+    var venus2X = LAYOUT_HALIGN_RIGHT;
+    var venus2Y = LAYOUT_VALIGN_CENTER;
+    var venumovey =  116;
+  
+    //Somehow get venumovey to move up 3 pixels    
+    
       var star;
       var specialstar;
       var baby;
+      var babyboy;
       var egg;
       var goal1;
       var goal2;
@@ -39,9 +47,12 @@ class VirtualStarWatchView extends WatchUi.WatchFace {
       var mouth4;
     function initialize() {
     
-    
+
         WatchFace.initialize();
         View.initialize();
+
+        
+        
 var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
 var fulldateString = Lang.format(
     "$1$ $2$",
@@ -60,6 +71,7 @@ var dayString = Lang.format(
 [
 today.day_of_week
 ]);
+
         eyes = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.eyes,
             :locX=> venus2X,
@@ -95,138 +107,23 @@ today.day_of_week
              :locX=> venus2X,
             :locY=> venus2Y
         });
-                 baby = new WatchUi.Bitmap({
+
+        baby= new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.baby,
              :locX=> venus2X,
             :locY=> venus2Y
         });
-
+          babyboy= new WatchUi.Bitmap({
+            :rezId=>Rez.Drawables.babyboy,
+             :locX=> venus2X,
+            :locY=> venus2Y
+        });
             egg = new WatchUi.Bitmap({
             :rezId=>Rez.Drawables.egg,
              :locX=> venus2X,
             :locY=> venus2Y
         });
-         goal1 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.goal1,
-             :locX=> LAYOUT_HALIGN_CENTER,
-            :locY=> 0
-        });
-                 goal2 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.goal2,
-             :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=> 0
-        });
-                 goal3 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.goal3,
-             :locX=> LAYOUT_HALIGN_CENTER,
-            :locY=> 0
-        });
-                 goal4 = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.goal4,
-             :locX=> LAYOUT_HALIGN_CENTER,
-            :locY=> 0
-        });
-
-        
-        
-      
- switch (monthString){
-        case "Jan":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.chinesenewyear,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Feb":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.February,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        
-        case "Mar":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.March,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Apr":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.April,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "May":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.dia,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Jun":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.June,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Jul":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.July,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Aug":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.August,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Sep":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.September,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Oct":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.October,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Nov":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.November,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;
-        case "Dec":
-        Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.December,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });
-        break;                                                    
-        default:    
-            Month = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.September,
-            :locX=>LAYOUT_HALIGN_CENTER,
-            :locY=>0
-        });  
          
-        }
-        
-
-     
 
         switch(fulldateString){
            case "Dec 25":  
@@ -442,7 +339,7 @@ today.day_of_week
         
         // Get the current time and format it correctly
         var goal = 5000; 
-       
+       var profile = UserProfile.getProfile();
         var timeFormat = "$1$:$2$";
         var clockTime = System.getClockTime();
         var hours = clockTime.hour;
@@ -471,9 +368,12 @@ var dateString = Lang.format(
 );
 
 
-// get ActivityMonitor info
 
+
+
+var mySettings = System.getDeviceSettings();
 var myStats = System.getSystemStats();
+//var phonestatus = mySettings.phoneConnected;
 var info = ActivityMonitor.getInfo();
 var battery = Lang.format("$1$",[((myStats.battery)).format("%2d")]);
 var batterylife = Lang.format("$1$",[(myStats.batteryInDays).format("%2d")]);
@@ -483,36 +383,63 @@ var heart = "";
 if (seconds%2 == 0){if (sensorIter != null) {
      heart =(sensorIter.next().data);
  }else { heart = "";}}else {heart = "";}
+ 
+
+
+		
+        var timeStamp= new Time.Moment(Time.today().value());
+		var positions = Activity.Info.currentLocation;
+        if (positions == null){
+        positions=new Position.Location(
+    {
+        :latitude => 38.856147,
+        :longitude => -94.800953,
+        :format => :degrees
+    }
+);
+        }
+        System.println("");
+        var sunset = Toybox.Weather.getSunset(positions, timeStamp);
+        var sunrise = Toybox.Weather.getSunrise(positions, timeStamp);
+		
 //System.println("You have taken: " + steps +
 //               " steps and burned: " + calories + " calories!");
-
 //System.println(myStats.totalMemory);
 //System.println(myStats.usedMemory);
 //System.println(myStats.freeMemory);
-  // Update the view
-        var view = View.findDrawableById("TimeLabel") as Text;
-        var view2 = View.findDrawableById("DateLabel") as Text;
-        var view3 = View.findDrawableById("batteryLabel") as Text;
-        var view4 = View.findDrawableById("heartLabel") as Text;
-        var view5 = View.findDrawableById("stepsLabel") as Text;
-        var view6 = View.findDrawableById("caloriesLabel") as Text;
-        view.setText(timeString);
-        view2.setText(dateString);
-                if (myStats.charging == true){view3.setText("CHARGE");}
+        // Update the view of text
+        var timeText = View.findDrawableById("TimeLabel") as Text;
+        var dateText = View.findDrawableById("DateLabel") as Text;
+        var batteryText = View.findDrawableById("batteryLabel") as Text;
+        var heartText = View.findDrawableById("heartLabel") as Text;
+        var stepText = View.findDrawableById("stepsLabel") as Text;
+        var calorieText = View.findDrawableById("caloriesLabel") as Text;
+        var horoscopeText = View.findDrawableById("horoscopeLabel") as Text;
+        var sunriseText = View.findDrawableById("sunriseLabel") as Text;
+        var sunsetText = View.findDrawableById("sunsetLabel") as Text;
+        //set text location based on width and height of device
+       // batteryText.locY = (((System.getDeviceSettings().screenHeight)/3));
+        //set text message
+        
+        sunriseText.setText("6:10 AM");
+        sunsetText.setText("7:09 PM");
+        
+        timeText.setText(timeString);
+        dateText.setText(dateString);
+                if (myStats.charging == true){batteryText.setText("CHARGE");}
         else{
-            if (minutes%2 == 0){ view3.setText(" "+battery + "%");}
-            else{view3.setText("DAYS:"+ batterylife) ;} } 
-             view3.locX = (((System.getDeviceSettings().screenWidth)/6));
-        view4.locX = (((System.getDeviceSettings().screenWidth)/3));
-        view6.locX = ((((System.getDeviceSettings().screenWidth)*3)/4));
-        view4.setText("-"+heart+"-");
-        view5.setText(""+steps);
-        view6.setText(""+calories);
-       
-         
+            if (minutes%2 == 0){ batteryText.setText(" "+battery + "%");}
+            else{batteryText.setText("DAYS:"+ batterylife) ;} } 
+        heartText.setText("-"+heart+"-");
+        stepText.setText(""+steps);
+        calorieText.setText(""+calories);
+        horoscopeText.setText("# # # #");
+        
       
         View.onUpdate(dc);
-        Month.draw(dc);
+        //if (phonestatus == true){phone.draw(dc);}
+        //else{nophone.draw(dc);}
+          
          var fakesteps = info.steps; 
         if (fakesteps < goal/4){ egg.draw(dc);  }
         else if (fakesteps > (goal/4) && fakesteps < ((goal*2)/4)){ baby.draw(dc);  goal1.draw(dc);}
@@ -554,8 +481,8 @@ if (seconds%2 == 0){if (sensorIter != null) {
         }else {
             mouth1.locY = venumovey;
             mouth2.locY = venumovey;
-            mouth3.locY = venus2Y;
-            mouth4.locY = venus2Y;
+            mouth3.locY = venumovey;
+            mouth4.locY = venumovey;
             star.locY = venumovey;
             eyes.locY = venumovey;
             eyes2.locY = venumovey;
@@ -575,6 +502,22 @@ if (seconds%2 == 0){if (sensorIter != null) {
     // memory.
     function onHide() as Void {
     }
+
+
+
+
+
+/* SET LOCATION IF NEEDED
+var myLocation = new Position.Location(
+    {
+        :latitude => 38.856147,
+        :longitude => -94.800953,
+        :format => :degrees
+    }
+);
+*/
+
+
 
 
 function getIterator() {
